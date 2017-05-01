@@ -1,17 +1,79 @@
 <!doctype html>
 <html lang="en">
+
+<div class="container">
+    <head>
+        <script type="text/javascript" src="../../vis-network/dist/vis.js"></script>
+        <link href="../../vis-network/dist/vis.css" rel="stylesheet" type="text/css" />
+
+        <style type="text/css">
+            #mynetwork {
+                width: 600px;
+                height: 400px;
+                border: 1px solid lightgray;
+            }
+        </style>
+    </head>
+    <body>
+    <div id="mynetwork"></div>
+
+    <script type="text/javascript">
+        // create an array with nodes
+        var nodes = new vis.DataSet([
+            {id: 1, label: 'Physics'},
+            {id: 2, label: 'ID'},
+            {id: 3, label: 'Optics'},
+            {id: 4, label: 'Computer Science'},
+            {id: 5, label: 'Mathematics'},
+            {id: 6, label: 'Art'},
+            {id: 7, label: 'Movies'},
+            {id: 8, label: 'Science-Art'},
+            {id: 9, label: 'Science'}
+        ]);
+
+        // create an array with edges
+        var edges = new vis.DataSet([
+            {from: 1, to: 3},
+            {from: 1, to: 2},
+            {from: 2, to: 4},
+            {from: 2, to: 5},
+            {from: 2, to: 6},
+            {from: 6, to: 7},
+            {from: 6, to: 8},
+            {from: 2, to: 9},
+            {from: 8, to: 9}
+        ]);
+
+        // create a network
+        var container = document.getElementById('mynetwork');
+
+        // provide the data in the vis format
+        var data = {
+            nodes: nodes,
+            edges: edges
+        };
+        var options = {};
+
+        // initialize your network!
+        var network = new vis.Network(container, data, options);
+    </script>
+    </body>
+</div>
 <head>
     <base href="/">
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Angular 2 Messenger</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+
 </head>
 <body>
-<my-app>Loading ...</my-app>
+<my-app>Loading...</my-app>
+
 <script src="/js/app/bundle.js"></script>
 </body>
+
+
+
+
+
 </html>
